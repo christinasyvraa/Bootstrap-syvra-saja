@@ -1,0 +1,153 @@
+
+        :root {
+            --batak-red: #B22222;
+            --batak-gold: #DAA520;
+            --batak-brown: #8B4513;
+            --batak-green: #228B22;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #FFF8DC, #F5F5DC);
+        }
+
+        .navbar-batak {
+            background: linear-gradient(135deg, var(--batak-red), var(--batak-brown));
+            padding: 15px 0;
+        }
+
+        .navbar-batak .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .navbar-batak .nav-link {
+            color: white !important;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        .navbar-batak .nav-link:hover {
+            color: var(--batak-gold) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(178, 34, 34, 0.8), rgba(139, 69, 19, 0.8)),
+                        url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .food-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .food-card img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .food-card .card-body {
+            padding: 25px;
+        }
+
+        .food-title {
+            color: var(--batak-red);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-batak {
+            background: linear-gradient(135deg, var(--batak-red), var(--batak-brown));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-batak:hover {
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(178, 34, 34, 0.3);
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        .recipe-header {
+            background: linear-gradient(135deg, var(--batak-gold), var(--batak-green));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .ingredient-box {
+            background: #FFF8DC;
+            border-left: 4px solid var(--batak-red);
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .step-box {
+            background: white;
+            border: 2px solid #E6E6FA;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            background: var(--batak-red);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .about-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .footer-batak {
+            background: linear-gradient(135deg, var(--batak-brown), var(--batak-red));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+ 

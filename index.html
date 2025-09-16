@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuliner Batak - Cita Rasa Tanah Batak</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        /* Variabel Warna Khas */
+        :root {
+            --batak-red: #A82C2C;
+            --batak-dark: #343a40;
+            --batak-green: #28a745;
+            --batak-light: #f8f9fa;
+        }
+
+        body {
+            padding-top: 70px; /* Menyesuaikan padding untuk fixed navbar */
+            background-color: var(--batak-light);
+            scroll-behavior: smooth; /* Membuat scroll lebih mulus saat mengklik link internal */
+        }
+
+        /* Navbar Styling */
+        .navbar-batak {
+            background-color: var(--batak-red);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-batak .navbar-brand,
+        .navbar-batak .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+        .navbar-batak .nav-link:hover {
+            color: #ffdd57;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1587574293344-1a931ae13754?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        /* Tombol Kustom */
+        .btn-batak {
+            background-color: var(--batak-red);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .btn-batak:hover {
+            background-color: #8b2323;
+            color: white;
+        }
+
+        /* Kartu Makanan */
+        .food-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        .food-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        .food-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .food-card .card-body {
+            padding: 2rem;
+        }
+        .food-title {
+            color: var(--batak-red);
+            font-weight: bold;
+        }
+
+        /* Halaman Resep */
+        .recipe-section {
+            padding-top: 100px; /* Padding agar tidak tertutup navbar */
+            padding-bottom: 50px;
+            background-color: #fff;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        .recipe-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .ingredient-box, .step-box {
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            margin-bottom: 1rem;
+        }
+        .step-box {
+            display: flex;
+            align-items: flex-start;
+        }
+        .step-number {
+            background-color: var(--batak-red);
+            color: white;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        /* Halaman Tentang */
+        #about {
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+        .about-section {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer-batak {
+            background-color: var(--batak-dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-batak fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                🍽️ Kuliner Batak
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-4">Kuliner Tradisional Batak</h1>
+                <p class="lead mb-4">Nikmati Cita Rasa Autentik Tanah Batak yang Kaya Rempah</p>
+                <a href="#makanan" class="btn btn-batak btn-lg">
+                    Jelajahi Makanan <i class="fas fa-arrow-down ms-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="makanan" class="py-5">
+            <div class="container">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="fw-bold mb-3" style="color: var(--batak-red);">Makanan Khas Batak</h2>
+                        <p class="text-muted">Empat hidangan ikonik dari tanah Batak yang wajib dicoba</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="food-card">
+                            <img src="./assets/image/Naniura.jpg" alt="Naniura">
+                            <div class="card-body">
+                                <h5 class="food-title">Naniura</h5>
+                                <p class="text-muted mb-3">Ikan mas segar yang diolah dengan bumbu khas Batak tanpa dimasak, disajikan dengan andaliman dan daun ubi.</p>
+                                <a href="#naniura-recipe" class="btn btn-batak">
+                                    Lihat Resep <i class="fas fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="food-card">
+                            <img src="./assets/image/ikan arsik.jpg" alt="Ikan Arsik">
+                            <div class="card-body">
+                                <h5 class="food-title">Ikan Arsik</h5>
+                                <p class="text-muted mb-3">Ikan mas yang dimasak dengan bumbu rica-rica khas Batak, andaliman, dan daun kemangi yang harum.</p>
+                                <a href="#arsik-recipe" class="btn btn-batak">
+                                    Lihat Resep <i class="fas fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="food-card">
+                            <img src="./assets/image/Natinombur.jpg" alt="Natinombur">
+                            <div class="card-body">
+                                <h5 class="food-title">Natinombur</h5>
+                                <p class="text-muted mb-3">Ikan panggang (mujair, nila, atau lele) yang disiram dengan bumbu khas dari andaliman, kemiri sangrai, dan kecombrang.</p>
+                                <a href="#natinombur-recipe" class="btn btn-batak">
+                                    Lihat Resep <i class="fas fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="food-card">
+                           <img src="./assets/image/napinadar.jpg" alt="Ayam Napinadar">
+                            <div class="card-body">
+                                <h5 class="food-title">Ayam Napinadar</h5>
+                                <p class="text-muted mb-3">Ayam panggang yang disiram saus bumbu kental yang dibuat dari darah ayam itu sendiri dicampur andaliman dan rempah lain.</p>
+                                <a href="#napinadar-recipe" class="btn btn-batak">
+                                    Lihat Resep <i class="fas fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="naniura-recipe" class="recipe-section">
+        <div class="container">
+            <a class="btn btn-outline-secondary mb-4" href="#makanan"><i class="fas fa-arrow-left me-2"></i>Kembali ke Daftar</a>
+            <div class="recipe-header">
+                <h1 class="fw-bold">Naniura - Sashimi Batak</h1>
+                <p class="lead mb-0">Naniura adalah hidangan ikan mentah khas Batak yang disajikan dengan bumbu tradisional</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <img src="assets/image/Naniura.jpg" class="img-fluid rounded-3" alt="Naniura">
+                </div>
+                <div class="col-lg-6">
+                    <div class="ingredient-box">
+                        <h4 class="fw-bold mb-3" style="color: var(--batak-red);"><i class="fas fa-list me-2"></i>Bahan-bahan</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 ekor ikan mas segar (1 kg)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>5 buah jeruk purut</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>10 butir andaliman</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>5 siung bawang merah</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>3 siung bawang putih</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>2 ruas jahe</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 ruas kunyit</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>5 buah cabai rawit</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Daun ubi tumbuk secukupnya</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Garam secukupnya</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h4 class="fw-bold mb-4" style="color: var(--batak-red);"><i class="fas fa-clipboard-list me-2"></i>Cara Memasak</h4>
+                <div class="step-box"><div class="step-number">1</div><p class="mb-0">Bersihkan ikan mas, buang sisik dan isi perut. Cuci bersih dengan air mengalir.</p></div>
+                <div class="step-box"><div class="step-number">2</div><p class="mb-0">Potong ikan menjadi potongan kecil, sisihkan.</p></div>
+                <div class="step-box"><div class="step-number">3</div><p class="mb-0">Haluskan bawang merah, bawang putih, jahe, kunyit, dan cabai rawit.</p></div>
+                <div class="step-box"><div class="step-number">4</div><p class="mb-0">Tumbuk andaliman hingga harum, campurkan dengan bumbu halus.</p></div>
+                <div class="step-box"><div class="step-number">5</div><p class="mb-0">Peras jeruk purut, campurkan air jeruk dengan bumbu.</p></div>
+                <div class="step-box"><div class="step-number">6</div><p class="mb-0">Rendam potongan ikan dalam bumbu selama minimal 30 menit.</p></div>
+                <div class="step-box"><div class="step-number">7</div><p class="mb-0">Tambahkan daun ubi tumbuk dan garam secukupnya.</p></div>
+                <div class="step-box"><div class="step-number">8</div><p class="mb-0">Sajikan segera sebagai hidangan pembuka.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="arsik-recipe" class="recipe-section">
+        <div class="container">
+             <a class="btn btn-outline-secondary mb-4" href="#makanan"><i class="fas fa-arrow-left me-2"></i>Kembali ke Daftar</a>
+            <div class="recipe-header">
+                <h1 class="fw-bold">Ikan Arsik - Ikan Mas Bumbu Kuning</h1>
+                <p class="lead mb-0">Ikan arsik adalah hidangan ikan mas yang dimasak dengan bumbu kuning khas Batak</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <img src="assets/image/ikan arsik.jpg" class="img-fluid rounded-3" alt="Ikan Arsik">
+                </div>
+                <div class="col-lg-6">
+                    <div class="ingredient-box">
+                        <h4 class="fw-bold mb-3" style="color: var(--batak-red);"><i class="fas fa-list me-2"></i>Bahan-bahan</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 ekor ikan mas (800g)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>8 buah cabai merah keriting</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>5 buah cabai rawit</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>6 siung bawang merah</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>4 siung bawang putih</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>2 ruas jahe</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 ruas kunyit</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>3 batang serai</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>5 lembar daun jeruk</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>10 lembar daun kemangi</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 sdt andaliman</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Garam dan gula secukupnya</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h4 class="fw-bold mb-4" style="color: var(--batak-red);"><i class="fas fa-clipboard-list me-2"></i>Cara Memasak</h4>
+                <div class="step-box"><div class="step-number">1</div><p class="mb-0">Bersihkan ikan mas, beri sayatan menyilang di kedua sisi.</p></div>
+                <div class="step-box"><div class="step-number">2</div><p class="mb-0">Haluskan cabai, bawang merah, bawang putih, jahe, dan kunyit.</p></div>
+                <div class="step-box"><div class="step-number">3</div><p class="mb-0">Panaskan sedikit minyak, tumis bumbu halus hingga harum.</p></div>
+                <div class="step-box"><div class="step-number">4</div><p class="mb-0">Masukkan serai yang dimemarkan dan daun jeruk.</p></div>
+                <div class="step-box"><div class="step-number">5</div><p class="mb-0">Tambahkan air secukupnya, masak hingga mendidih.</p></div>
+                <div class="step-box"><div class="step-number">6</div><p class="mb-0">Masukkan ikan mas, masak dengan api sedang selama 20 menit.</p></div>
+                <div class="step-box"><div class="step-number">7</div><p class="mb-0">Tambahkan andaliman yang ditumbuk dan daun kemangi.</p></div>
+                <div class="step-box"><div class="step-number">8</div><p class="mb-0">Bumbui dengan garam dan gula, masak hingga bumbu meresap.</p></div>
+                <div class="step-box"><div class="step-number">9</div><p class="mb-0">Angkat dan sajikan hangat.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="natinombur-recipe" class="recipe-section">
+        <div class="container">
+            <a class="btn btn-outline-secondary mb-4" href="#makanan"><i class="fas fa-arrow-left me-2"></i>Kembali ke Daftar</a>
+            <div class="recipe-header">
+                <h1 class="fw-bold">Ikan Natinombur</h1>
+                <p class="lead mb-0">Ikan panggang yang disiram bumbu andaliman pedas dan segar.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <img src="assets/image/Natinombur.jpg" class="img-fluid rounded-3" alt="Natinombur">
+                </div>
+                <div class="col-lg-6">
+                    <div class="ingredient-box">
+                        <h4 class="fw-bold mb-3" style="color: var(--batak-red);"><i class="fas fa-list me-2"></i>Bahan-bahan</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 kg ikan mujair/nila</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>7 biji kemiri (sangrai)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>100 gram cabe merah</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>2 ruas jari jahe</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>15 biji cabe rawit (sesuai selera)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>2 buah kecombrang/rias</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>5 siung bawang merah</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>4 siung bawang putih</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>2 buah jeruk nipis</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 genggam andaliman</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Garam secukupnya</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Air panas secukupnya</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h4 class="fw-bold mb-4" style="color: var(--batak-red);"><i class="fas fa-clipboard-list me-2"></i>Cara Memasak</h4>
+                <div class="step-box"><div class="step-number">1</div><p class="mb-0">Bersihkan ikan, belah dua jangan sampai putus. Lumuri ikan dengan 1 perasan jeruk nipis dan garam. Diamkan 15 menit.</p></div>
+                <div class="step-box"><div class="step-number">2</div><p class="mb-0">Panggang ikan di atas bara api atau teflon hingga matang di kedua sisi. Sisihkan.</p></div>
+                <div class="step-box"><div class="step-number">3</div><p class="mb-0">Sangrai kemiri, bawang merah, bawang putih, jahe, cabe merah, dan rawit hingga harum.</p></div>
+                <div class="step-box"><div class="step-number">4</div><p class="mb-0">Bakar sebentar kecombrang hingga sedikit layu untuk mengeluarkan aromanya.</p></div>
+                <div class="step-box"><div class="step-number">5</div><p class="mb-0">Haluskan semua bumbu yang telah disangrai bersama andaliman dan kecombrang. Ulek atau blender hingga halus.</p></div>
+                <div class="step-box"><div class="step-number">6</div><p class="mb-0">Tambahkan garam, sisa perasan jeruk nipis, dan sedikit air panas ke dalam bumbu. Aduk hingga rata dan koreksi rasa.</p></div>
+                <div class="step-box"><div class="step-number">7</div><p class="mb-0">Siram bumbu tombur di atas ikan panggang. Sajikan segera.</p></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="napinadar-recipe" class="recipe-section">
+        <div class="container">
+            <a class="btn btn-outline-secondary mb-4" href="#makanan"><i class="fas fa-arrow-left me-2"></i>Kembali ke Daftar</a>
+            <div class="recipe-header">
+                <h1 class="fw-bold">Ayam Napinadar</h1>
+                <p class="lead mb-0">Ayam panggang dengan saus bumbu khas yang menggunakan darah ayam sebagai pengental.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <img src="assets/image/napinadar.jpg" class="img-fluid rounded-3" alt="Ayam Napinadar">
+                </div>
+                <div class="col-lg-6">
+                    <div class="ingredient-box">
+                        <h4 class="fw-bold mb-3" style="color: var(--batak-red);"><i class="fas fa-list me-2"></i>Bahan-bahan</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 ekor ayam kampung (ambil darahnya untuk bumbu)</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 buah jeruk nipis</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1 sdm andaliman</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>8 siung bawang merah</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>6 siung bawang putih</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>5 buah cabai rawit hijau</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>2 batang serai, memarkan</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>2 cm lengkuas, memarkan</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>1/2 sdt merica</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Garam secukupnya</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Darah ayam dari 1 ekor ayam, beri 1 sdm perasan jeruk nipis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h4 class="fw-bold mb-4" style="color: var(--batak-red);"><i class="fas fa-clipboard-list me-2"></i>Cara Memasak</h4>
+                <div class="step-box"><div class="step-number">1</div><p class="mb-0">Potong ayam sesuai selera. Lumuri dengan air jeruk nipis dan garam. Diamkan 15 menit.</p></div>
+                <div class="step-box"><div class="step-number">2</div><p class="mb-0">Panggang ayam hingga matang. Sisihkan.</p></div>
+                <div class="step-box"><div class="step-number">3</div><p class="mb-0">Haluskan bawang merah, bawang putih, cabai, andaliman, dan merica.</p></div>
+                <div class="step-box"><div class="step-number">4</div><p class="mb-0">Tumis bumbu halus hingga harum. Masukkan serai dan lengkuas, aduk hingga matang.</p></div>
+                <div class="step-box"><div class="step-number">5</div><p class="mb-0">Masukkan darah ayam yang sudah dicampur jeruk nipis ke dalam tumisan bumbu. Masak dengan api kecil sambil terus diaduk hingga mengental dan matang.</p></div>
+                <div class="step-box"><div class="step-number">6</div><p class="mb-0">Tambahkan garam dan koreksi rasa. Saus harus terasa gurih, pedas, dengan sensasi getir dari andaliman.</p></div>
+                <div class="step-box"><div class="step-number">7</div><p class="mb-0">Tata ayam panggang di atas piring saji, lalu siram dengan saus napinadar.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="about-section">
+                        <h2 class="fw-bold mb-4" style="color: var(--batak-red);">Tentang Pembuat</h2>
+                        <img src="assets/image/Syvra.jpg" 
+                             alt="Chef Batak" class="rounded-circle mb-4" width="150" height="150">
+                        
+                        <h4 class="fw-bold mb-3">Syvra Tambun</h4>
+                        <p class="lead text-muted mb-4">Mahasiswa S1 Informatika</p>
+                        
+                        <p class="text-muted mb-4">
+                            Selamat datang di website kuliner tradisional Batak! Saya adalah seorang mahasiswa Informatika di IT Del. Tujuan pembuatan web ini sendiri adalah untuk memenuhi tugas pada mata kuliah PABWE dan 
+                            untuk melestarikan dan memperkenalkan kekayaan kuliner Tanah Batak kepada dunia.
+                        </p>
+                        
+                        <p class="text-muted mb-4">
+                            Kuliner Batak memiliki karakteristik yang unik dengan penggunaan rempah-rempah khas seperti 
+                            andaliman, daun kemangi, dan teknik memasak tradisional yang telah diwariskan turun-temurun.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-batak">
+        <div class="container">
+            <h5 class="fw-bold mb-3">🍽️ Kuliner Batak</h5>
+            <p class="mb-3">Melestarikan Cita Rasa Tradisional Tanah Batak</p>
+            <p class="mb-0">&copy; 2025 Syvra. Dibuat dengan ❤️ menggunakan Bootstrap 5.3</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
